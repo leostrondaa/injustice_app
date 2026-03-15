@@ -1,6 +1,6 @@
 import 'package:faker_dart/faker_dart.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/domain/models/character_entity.dart';
+import '../../domain/models/account_entity.dart';
+import '../../domain/models/character_entity.dart';
 
 abstract class FakeFactory {
   static final Faker _faker = Faker.instance..setLocale(FakerLocaleType.pt_PT);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/core/messages/app_messages.dart';
-import 'package:injustice_app/core/validators/base_validator.dart';
-import 'package:injustice_app/core/validators/text_field_validator.dart';
+import '../../core/failure/failure.dart';
+import '../../core/messages/app_messages.dart';
+import '../../core/validators/base_validator.dart';
+import '../../core/validators/text_field_validator.dart';
 
 /// validacoes de campos de texto
 String? validateField(String? value, List<BaseValidator> validators) {

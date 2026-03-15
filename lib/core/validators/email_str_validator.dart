@@ -1,6 +1,6 @@
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/core/messages/app_messages.dart';
-import 'package:injustice_app/core/regular_expressions/regular_expressions.dart';
+import '../failure/failure.dart';
+import '../messages/app_messages.dart';
+import '../regular_expressions/regular_expressions.dart';
 
 import 'base_validator.dart';
 

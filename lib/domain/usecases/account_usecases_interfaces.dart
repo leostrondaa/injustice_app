@@ -1,5 +1,5 @@
-import 'package:injustice_app/core/patterns/i_usecases.dart';
-import 'package:injustice_app/core/typedefs/types_defs.dart';
+import '../../core/patterns/i_usecases.dart';
+import '../../core/typedefs/types_defs.dart';
 
 abstract interface class IGetAccountUseCase
     implements IUseCase<AccountResult, NoParams> {}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/theme/app_theme.dart';
-import 'package:injustice_app/presentation/widgets/app_drawer.dart';
+import '../../core/theme/app_theme.dart';
+import '../widgets/app_drawer.dart';
 
 /// Página de informações sobre o jogo
 class AboutView extends StatelessWidget {

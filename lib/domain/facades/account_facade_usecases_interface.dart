@@ -1,4 +1,4 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
+import '../../core/typedefs/types_defs.dart';
 
 abstract interface class IAccountFacadeUseCases {
   Future<AccountResult> getAccount(NoParams params);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/di/dependency_injection.dart';
-import 'package:injustice_app/core/routes/app_routes.dart';
-import 'package:injustice_app/core/theme/app_theme.dart' as AppTheme;
-import 'package:injustice_app/core/theme/theme_controller.dart';
+import 'core/di/dependency_injection.dart';
+import 'core/routes/app_routes.dart';
+import 'core/theme/app_theme.dart' as AppTheme;
+import 'core/theme/theme_controller.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 void main() {

@@ -1,5 +1,5 @@
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/helper_dev/fakes/fakes_factory.dart';
+import '../../domain/models/account_entity.dart';
+import 'fakes_factory.dart';
 
 class AccountFactory {
   /// Cria uma instância de Account com dados falsos

@@ -1,7 +1,7 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/data/repositories/character_repository_interface.dart';
-import 'package:injustice_app/data/services/character_local_storage_interface.dart';
-import 'package:injustice_app/domain/models/character_entity.dart';
+import '../../core/typedefs/types_defs.dart';
+import 'character_repository_interface.dart';
+import '../services/character_local_storage_interface.dart';
+import '../../domain/models/character_entity.dart';
 
 /// implementacao do repositorio de character
 

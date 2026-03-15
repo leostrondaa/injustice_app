@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/theme/app_theme.dart';
-import 'package:injustice_app/presentation/widgets/numeric_spinner.dart';
+import '../../core/theme/app_theme.dart';
+import 'numeric_spinner.dart';
 
 class AccountAttributeCard extends StatelessWidget {
   final IconData icon;

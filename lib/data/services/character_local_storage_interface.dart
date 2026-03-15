@@ -1,5 +1,5 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/domain/models/character_entity.dart';
+import '../../core/typedefs/types_defs.dart';
+import '../../domain/models/character_entity.dart';
 
 abstract interface class ICharacterLocalStorage {
   Future<CharacterResult> saveCharacter(Character character);

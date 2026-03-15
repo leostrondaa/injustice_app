@@ -1,23 +1,24 @@
 import 'package:auto_injector/auto_injector.dart';
-import 'package:injustice_app/core/theme/theme_controller.dart';
-import 'package:injustice_app/data/repositories/account_repository_impl.dart';
-import 'package:injustice_app/data/repositories/account_repository_interface.dart';
-import 'package:injustice_app/data/repositories/character_repository_impl.dart';
-import 'package:injustice_app/data/repositories/character_repository_interface.dart';
-import 'package:injustice_app/data/services/account_local_storage_interface.dart';
-import 'package:injustice_app/data/services/account_shared_preferences_impl.dart';
-import 'package:injustice_app/data/services/character_local_storage_interface.dart';
-import 'package:injustice_app/data/services/character_shared_preferences_impl.dart';
-import 'package:injustice_app/domain/facades/account_facade_usecases_impl.dart';
-import 'package:injustice_app/domain/facades/account_facade_usecases_interface.dart';
-import 'package:injustice_app/domain/facades/character_facade_usecases_impl.dart';
-import 'package:injustice_app/domain/facades/character_facade_usecases_interface.dart';
-import 'package:injustice_app/domain/usecases/account_usecases_impl.dart';
-import 'package:injustice_app/domain/usecases/account_usecases_interfaces.dart';
-import 'package:injustice_app/domain/usecases/character_usecases_impl.dart';
-import 'package:injustice_app/domain/usecases/character_usecases_interfaces.dart';
-import 'package:injustice_app/presentation/controllers/account_viewmodel.dart';
-import 'package:injustice_app/presentation/controllers/characters_view_model.dart';
+
+import '../../data/repositories/account_repository_impl.dart';
+import '../../data/repositories/account_repository_interface.dart';
+import '../../data/repositories/character_repository_impl.dart';
+import '../../data/repositories/character_repository_interface.dart';
+import '../../data/services/account_local_storage_interface.dart';
+import '../../data/services/account_shared_preferences_impl.dart';
+import '../../data/services/character_local_storage_interface.dart';
+import '../../data/services/character_shared_preferences_impl.dart';
+import '../../domain/facades/account_facade_usecases_impl.dart';
+import '../../domain/facades/account_facade_usecases_interface.dart';
+import '../../domain/facades/character_facade_usecases_impl.dart';
+import '../../domain/facades/character_facade_usecases_interface.dart';
+import '../../domain/usecases/account_usecases_impl.dart';
+import '../../domain/usecases/account_usecases_interfaces.dart';
+import '../../domain/usecases/character_usecases_impl.dart';
+import '../../domain/usecases/character_usecases_interfaces.dart';
+import '../../presentation/controllers/account_viewmodel.dart';
+import '../../presentation/controllers/characters_view_model.dart';
+import '../theme/theme_controller.dart';
 
 final injector = AutoInjector();
 void setupDependencyInjection() {

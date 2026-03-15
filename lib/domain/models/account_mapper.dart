@@ -1,4 +1,4 @@
-import 'package:injustice_app/domain/models/account_entity.dart';
+import 'account_entity.dart';
 
 class AccountMapper {
   static Map<String, dynamic> toMap(Account account) {

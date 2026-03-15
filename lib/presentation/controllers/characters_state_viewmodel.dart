@@ -1,4 +1,4 @@
-import 'package:injustice_app/domain/models/character_entity.dart';
+import '../../domain/models/character_entity.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 enum SortBy { name, level, stars }

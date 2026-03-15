@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/domain/models/character_entity.dart';
+import '../failure/failure.dart';
+import '../../domain/models/account_entity.dart';
+import '../../domain/models/character_entity.dart';
 
 import '../patterns/result.dart';
 

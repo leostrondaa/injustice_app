@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/theme/app_theme.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
+import '../../core/theme/app_theme.dart';
+import '../../domain/models/account_entity.dart';
 
 class AccountSummaryCard extends StatelessWidget {
   final Account account;

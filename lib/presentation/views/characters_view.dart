@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/di/dependency_injection.dart';
-import 'package:injustice_app/core/theme/app_theme.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/domain/models/character_entity.dart';
-import 'package:injustice_app/domain/models/extensions/character_ui.dart';
-import 'package:injustice_app/presentation/controllers/characters_state_viewmodel.dart';
-import 'package:injustice_app/presentation/controllers/characters_view_model.dart';
-import 'package:injustice_app/presentation/widgets/account_summary_card.dart';
-import 'package:injustice_app/presentation/widgets/app_drawer.dart';
-import 'package:injustice_app/presentation/widgets/loading_indicator.dart';
-import 'package:injustice_app/presentation/widgets/star_rating.dart';
+import '../../core/di/dependency_injection.dart';
+import '../../core/theme/app_theme.dart';
+import '../../domain/models/account_entity.dart';
+import '../../domain/models/character_entity.dart';
+import '../../domain/models/extensions/character_ui.dart';
+import '../controllers/characters_state_viewmodel.dart';
+import '../controllers/characters_view_model.dart';
+import '../widgets/account_summary_card.dart';
+import '../widgets/app_drawer.dart';
+import '../widgets/loading_indicator.dart';
+import '../widgets/star_rating.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 import '../../helper_dev/fakes/factories.dart';

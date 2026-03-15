@@ -1,6 +1,6 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/domain/facades/character_facade_usecases_interface.dart';
-import 'package:injustice_app/domain/usecases/character_usecases_interfaces.dart';
+import '../../core/typedefs/types_defs.dart';
+import 'character_facade_usecases_interface.dart';
+import '../usecases/character_usecases_interfaces.dart';
 
 /// implementacao do [ICharacterFacadeUseCases]
 /// para chamar os usecases relacionados a Character

@@ -1,4 +1,4 @@
-import 'package:injustice_app/domain/models/account_entity.dart';
+import '../../domain/models/account_entity.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 /// ViewModel que representa o estado da entidade Account

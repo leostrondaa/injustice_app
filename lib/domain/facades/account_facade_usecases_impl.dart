@@ -1,6 +1,6 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/domain/facades/account_facade_usecases_interface.dart';
-import 'package:injustice_app/domain/usecases/account_usecases_interfaces.dart';
+import '../../core/typedefs/types_defs.dart';
+import 'account_facade_usecases_interface.dart';
+import '../usecases/account_usecases_interfaces.dart';
 
 /// implemantação do [IAccountFacadeUseCases] para
 /// chamar os usecases relacionados a Account

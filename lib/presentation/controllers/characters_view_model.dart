@@ -1,7 +1,7 @@
-import 'package:injustice_app/domain/facades/character_facade_usecases_interface.dart';
-import 'package:injustice_app/presentation/commands/character_commands.dart';
-import 'package:injustice_app/presentation/controllers/characters_commands_view_model.dart';
-import 'package:injustice_app/presentation/controllers/characters_state_viewmodel.dart';
+import '../../domain/facades/character_facade_usecases_interface.dart';
+import '../commands/character_commands.dart';
+import 'characters_commands_view_model.dart';
+import 'characters_state_viewmodel.dart';
 
 // ViewModel principal que será consumida na UI
 /// que mostra a lista de personagens

@@ -1,4 +1,4 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
+import '../../core/typedefs/types_defs.dart';
 
 abstract interface class ICharacterFacadeUseCases {
   Future<ListCharacterResult> getAllCharacters(NoParams params);

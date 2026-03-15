@@ -1,6 +1,6 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/data/repositories/account_repository_interface.dart';
-import 'package:injustice_app/domain/usecases/account_usecases_interfaces.dart';
+import '../../core/typedefs/types_defs.dart';
+import '../../data/repositories/account_repository_interface.dart';
+import 'account_usecases_interfaces.dart';
 
 /// implementacao de todos os usecases relacionados a Account
 

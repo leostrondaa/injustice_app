@@ -1,6 +1,6 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/data/repositories/character_repository_interface.dart';
-import 'package:injustice_app/domain/usecases/character_usecases_interfaces.dart';
+import '../../core/typedefs/types_defs.dart';
+import '../../data/repositories/character_repository_interface.dart';
+import 'character_usecases_interfaces.dart';
 
 /// implementacao dos usecases relacionados a Character
 

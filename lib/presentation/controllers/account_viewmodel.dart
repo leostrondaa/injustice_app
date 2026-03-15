@@ -1,7 +1,7 @@
-import 'package:injustice_app/domain/facades/account_facade_usecases_interface.dart';
-import 'package:injustice_app/presentation/commands/account_commands.dart';
-import 'package:injustice_app/presentation/controllers/account_commands_viewmodel.dart';
-import 'package:injustice_app/presentation/controllers/account_state_viewmodel.dart';
+import '../../domain/facades/account_facade_usecases_interface.dart';
+import '../commands/account_commands.dart';
+import 'account_commands_viewmodel.dart';
+import 'account_state_viewmodel.dart';
 
 class AccountViewModel {
   late final AccountStateViewModel _state;

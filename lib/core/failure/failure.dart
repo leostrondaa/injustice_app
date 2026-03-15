@@ -1,4 +1,4 @@
-import 'package:injustice_app/core/messages/app_messages.dart';
+import '../messages/app_messages.dart';
 
 sealed class Failure implements Exception {
   final String msg;

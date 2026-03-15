@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/core/patterns/result.dart';
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/data/services/account_local_storage_interface.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/domain/models/account_mapper.dart';
+import '../../core/failure/failure.dart';
+import '../../core/patterns/result.dart';
+import '../../core/typedefs/types_defs.dart';
+import 'account_local_storage_interface.dart';
+import '../../domain/models/account_entity.dart';
+import '../../domain/models/account_mapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final class AccountSharedPreferencesService implements IAccountLocalStorage {

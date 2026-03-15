@@ -1,7 +1,7 @@
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/data/repositories/account_repository_interface.dart';
-import 'package:injustice_app/data/services/account_local_storage_interface.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
+import '../../core/typedefs/types_defs.dart';
+import 'account_repository_interface.dart';
+import '../services/account_local_storage_interface.dart';
+import '../../domain/models/account_entity.dart';
 
 /// implementação do repositório para Account
 

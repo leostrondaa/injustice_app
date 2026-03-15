@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:injustice_app/core/di/dependency_injection.dart';
-import 'package:injustice_app/core/routes/app_routes.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/presentation/controllers/account_viewmodel.dart';
+import '../../core/di/dependency_injection.dart';
+import '../../core/routes/app_routes.dart';
+import '../../domain/models/account_entity.dart';
+import '../controllers/account_viewmodel.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 import '../../helper_dev/fakes/factories.dart';

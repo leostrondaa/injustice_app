@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:injustice_app/core/di/dependency_injection.dart';
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/core/messages/app_messages.dart';
-import 'package:injustice_app/core/theme/app_theme.dart';
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/core/validators/email_str_validator.dart';
-import 'package:injustice_app/core/validators/empty_str_validator.dart';
-import 'package:injustice_app/core/validators/text_field_validator.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/presentation/controllers/account_state_viewmodel.dart';
-import 'package:injustice_app/presentation/controllers/account_viewmodel.dart';
-import 'package:injustice_app/presentation/functions/ui_functions.dart';
-import 'package:injustice_app/presentation/widgets/account_attribute_card.dart';
-import 'package:injustice_app/presentation/widgets/app_drawer.dart';
-import 'package:injustice_app/presentation/widgets/date_wheel_picker.dart';
-import 'package:injustice_app/presentation/widgets/input_text_field.dart';
+import '../../core/di/dependency_injection.dart';
+import '../../core/failure/failure.dart';
+import '../../core/messages/app_messages.dart';
+import '../../core/theme/app_theme.dart';
+import '../../core/typedefs/types_defs.dart';
+import '../../core/validators/email_str_validator.dart';
+import '../../core/validators/empty_str_validator.dart';
+import '../../core/validators/text_field_validator.dart';
+import '../../domain/models/account_entity.dart';
+import '../controllers/account_state_viewmodel.dart';
+import '../controllers/account_viewmodel.dart';
+import '../functions/ui_functions.dart';
+import '../widgets/account_attribute_card.dart';
+import '../widgets/app_drawer.dart';
+import '../widgets/date_wheel_picker.dart';
+import '../widgets/input_text_field.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 /// Página de cadastro de conta

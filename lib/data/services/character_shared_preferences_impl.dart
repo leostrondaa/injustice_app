@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/data/services/character_local_storage_interface.dart';
-import 'package:injustice_app/domain/models/character_entity.dart';
-import 'package:injustice_app/domain/models/character_mapper.dart';
+import '../../core/failure/failure.dart';
+import '../../core/typedefs/types_defs.dart';
+import 'character_local_storage_interface.dart';
+import '../../domain/models/character_entity.dart';
+import '../../domain/models/character_mapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/patterns/result.dart';
 

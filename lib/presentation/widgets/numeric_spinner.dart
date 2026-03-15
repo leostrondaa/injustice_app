@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:injustice_app/core/theme/app_theme.dart';
+import '../../core/theme/app_theme.dart';
 
 /// Widget personalizado para seleção numérica com botões de incremento/decremento
 ///

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:injustice_app/core/di/dependency_injection.dart';
-import 'package:injustice_app/core/routes/app_routes.dart';
-import 'package:injustice_app/core/theme/app_theme.dart';
-import 'package:injustice_app/presentation/controllers/account_viewmodel.dart';
-import 'package:injustice_app/presentation/widgets/app_drawer.dart';
+import '../../core/di/dependency_injection.dart';
+import '../../core/routes/app_routes.dart';
+import '../../core/theme/app_theme.dart';
+import '../controllers/account_viewmodel.dart';
+import '../widgets/app_drawer.dart';
 import 'package:intl/intl.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 

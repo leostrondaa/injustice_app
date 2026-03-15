@@ -1,9 +1,9 @@
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/core/patterns/command.dart';
-import 'package:injustice_app/core/patterns/result.dart';
-import 'package:injustice_app/core/typedefs/types_defs.dart';
-import 'package:injustice_app/domain/facades/account_facade_usecases_interface.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
+import '../../core/failure/failure.dart';
+import '../../core/patterns/command.dart';
+import '../../core/patterns/result.dart';
+import '../../core/typedefs/types_defs.dart';
+import '../../domain/facades/account_facade_usecases_interface.dart';
+import '../../domain/models/account_entity.dart';
 
 final class SaveAccountCommand
     extends ParameterizedCommand<void, Failure, AccountParams> {

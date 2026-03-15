@@ -1,4 +1,4 @@
-import 'package:injustice_app/domain/models/character_entity.dart';
+import 'character_entity.dart';
 
 class CharacterMapper {
   static Map<String, dynamic> toMap(Character character) {

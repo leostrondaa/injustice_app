@@ -1,8 +1,8 @@
-import 'package:injustice_app/core/failure/failure.dart';
-import 'package:injustice_app/core/patterns/command.dart';
-import 'package:injustice_app/domain/models/account_entity.dart';
-import 'package:injustice_app/presentation/commands/account_commands.dart';
-import 'package:injustice_app/presentation/controllers/account_state_viewmodel.dart';
+import '../../core/failure/failure.dart';
+import '../../core/patterns/command.dart';
+import '../../domain/models/account_entity.dart';
+import '../commands/account_commands.dart';
+import 'account_state_viewmodel.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 class AccountCommandsViewmodel {
