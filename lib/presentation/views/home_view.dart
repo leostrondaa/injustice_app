@@ -34,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
       drawer: AppDrawer(),
       body: Watch((context) {
        
-        if (_vmAccount.saveAccountCommand.isExecuting.value) {
+        if (_vmAccount.commands.getAccountCommand.isExecuting.value) {
           return const Center(child: CircularProgressIndicator());
         }
        
