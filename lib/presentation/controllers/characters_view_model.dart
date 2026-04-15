@@ -20,6 +20,7 @@ class CharactersViewModel {
     commands = CharactersCommandsViewModel(
       state: _state,
       getAccountCommand: GetAllCharactersCommand(facade),
+      updateAccountCommand: GetAllCharactersCommand(facade),
       createCharacterCommand: CreateCharacterCommand(facade),
      );
   }

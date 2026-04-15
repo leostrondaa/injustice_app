@@ -9,13 +9,16 @@ class CharactersCommandsViewModel {
   final CharactersStateViewmodel state;
   final GetAllCharactersCommand _getAccountCommand;
   final CreateCharacterCommand _createCharacterCommand;
+  final UpdateCharacterCommand _updateCharacterCommand;
 
   CharactersCommandsViewModel({
     required this.state,
     required GetAllCharactersCommand getAccountCommand,
     required CreateCharacterCommand createCharacterCommand,
-  }) : _getAccountCommand = getAccountCommand,
-       _createCharacterCommand = createCharacterCommand {
+    required CreateCharacterCommand updateCharacterCommand,
+  })  : _getAccountCommand = getAccountCommand,
+        _updateCharacterCommand = updateCharacterCommand,
+        _createCharacterCommand = createCharacterCommand {
     // Observers para cada comando
     _observeGetAllCharacters();
     _observeCreateCharacter();
@@ -75,14 +78,18 @@ class CharactersCommandsViewModel {
           state.setMessage(err.msg), // registra o erro no estado
     );
   }
+
   /// Criar um novo personagem
-  void _observeCreateCharacter() {  
+  void _observeCreateCharacter() {
     _observeCommand<Character>(
       _createCharacterCommand,
       onSuccess: (newCharacter) {
         final currentList = state.state.value;
-        final newlist = [...currentList, newCharacter]; // Adiciona o novo personagem à lista
-        state.state.value = newlist; 
+        final newlist = [
+          ...currentList,
+          newCharacter
+        ]; // Adiciona o novo personagem à lista
+        state.state.value = newlist;
       },
       onFailure: (err) =>
           state.setMessage(err.msg), // registra o erro no estado
