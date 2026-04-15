@@ -15,13 +15,14 @@ class CharactersCommandsViewModel {
     required this.state,
     required GetAllCharactersCommand getAccountCommand,
     required CreateCharacterCommand createCharacterCommand,
-    required CreateCharacterCommand updateCharacterCommand,
+    required UpdateCharacterCommand updateCharacterCommand,
   })  : _getAccountCommand = getAccountCommand,
         _updateCharacterCommand = updateCharacterCommand,
         _createCharacterCommand = createCharacterCommand {
     // Observers para cada comando
     _observeGetAllCharacters();
     _observeCreateCharacter();
+    // _observeUpdateCharacter(); // falta criar o observer
   }
 
   // ========================================================
