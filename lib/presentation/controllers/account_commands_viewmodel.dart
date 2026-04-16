@@ -18,10 +18,10 @@ class AccountCommandsViewmodel {
     required SaveAccountCommand saveAccountCommand,
     required UpdateAccountCommand updateAccountCommand,
     required DeleteAccountCommand deleteAccountCommand,
-  }) : _getAccountCommand = getAccountCommand,
-       _saveAccountCommand = saveAccountCommand,
-       _updateAccountCommand = updateAccountCommand,
-       _deleteAccountCommand = deleteAccountCommand {
+  })  : _getAccountCommand = getAccountCommand,
+        _saveAccountCommand = saveAccountCommand,
+        _updateAccountCommand = updateAccountCommand,
+        _deleteAccountCommand = deleteAccountCommand {
     // Observers para cada comando
     _observeGetAccount();
     _observeDeleteAccount();
@@ -93,14 +93,14 @@ class AccountCommandsViewmodel {
       onSuccess: (_) {
         state.successEvent.value = AccountSuccessEvent.deleted;
         state.setAccount(null); // Limpa a conta do estado
-        
       },
       onFailure: (err) {
         state.setMessage(err.msg);
       },
     );
   }
- // salvar Account
+
+  // salvar Account
   void _observeSaveAccount() {
     _observeCommand<void>(
       _saveAccountCommand,
@@ -121,7 +121,6 @@ class AccountCommandsViewmodel {
       onSuccess: (_) {
         state.successEvent.value = AccountSuccessEvent.updated;
         state.clearMessage(); // Limpa mensagens anteriores
-        
       },
       onFailure: (err) {
         state.setMessage(err.msg);

@@ -24,91 +24,64 @@ class _CharacterEditViewState extends State<CharacterEditView> {
   late final CharacterFormFieldsController _formFields;
   final _formKey = GlobalKey<FormState>();
 
-  // Estados locais
-  // late int _level;
-  // late double _gold;
-  // late int _gems;
-
   @override
   void initState() {
     super.initState();
     _vmCharacter = injector.get<CharactersViewModel>();
     _formFields = CharacterFormFieldsController();
 
-    // Injetamos a conta no estado do ViewModel para os effects funcionarem
-    _vmCharacter.charactersState.state.value = [widget.character];
-
-    // Inicializa campos e estados locais com os dados atuais
+    // Preenche com os dados que vieram da tela anterior
     _preencherCampos(widget.character);
-    _setupEffects();
-  }
-
-  void _setupEffects() {
-    // Effect para mensagens de erro/sucesso (mesma lógica que você já tem)
-    effect(() {
-      final errorMessage = _vmCharacter.charactersState.message.value;
-
-      if (errorMessage != null && mounted) {
-        showSnackBar(context, errorMessage, backgroundColor: Colors.red);
-        _vmCharacter.charactersState.clearMessage();
-      }
-    });
   }
 
   void _preencherCampos(Character character) {
-    _formFields.email.controller.text = character.name;
-    _formFields.name.controller.text = character.characterClass.name;
+    _formFields.name.controller.text = character.name;
+    // Se tiver outros campos como level ou classe, preencha aqui
   }
 
-  Future<void> _atualizarCharacter() async {
+  Future<void> _salvarEdicao() async {
     if (!_formKey.currentState!.validate()) return;
 
-    // Criamos o objeto mantendo o ID original
+    // Criamos o clone com os dados novos
     final updatedCharacter = widget.character.copyWith(
-      characterClass: CharacterClass.values.byName(_formFields.email.controller.text.trim(),),
       name: _formFields.name.controller.text.trim(),
-
       updatedAt: DateTime.now(),
+      // characterClass: widget.character.characterClass, // Mantém ou muda via Dropdown
     );
 
-    await _vmCharacter.commands.updateAccount(updatedCharacter);
+    await _vmCharacter.commands.updateCharacter(updatedCharacter);
 
-    if (mounted) Navigator.pop(context); // Opcional: volta após salvar
+    if (mounted) Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Editar Conta'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.delete_outline, color: Colors.red),
-            onPressed: () => _excluirConta(), // Sua função de excluir
-          )
-        ],
+        title: Text('Editar ${widget.character.name}'),
       ),
       body: SingleChildScrollView(
-        padding: AppSpacing.paddingLg,
+        padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
-              InputTextField(
-                label: 'E-mail',
-                controller: _formFields.email.controller,
-                prefixIcon: Icons.email,
-                enabled: false, // Geralmente e-mail não se edita
+              // Avatar do Personagem (UX: Bom ter uma prévia visual)
+              CircleAvatar(
+                radius: 50,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 24),
               InputTextField(
-                label: 'Nome de Usuário',
+                label: 'Nome do Personagem',
                 controller: _formFields.name.controller,
-                prefixIcon: Icons.person,
+                prefixIcon: Icons.badge,
               ),
               const SizedBox(height: 32),
               ElevatedButton(
-                onPressed: _atualizarConta,
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50),
+                ),
+                onPressed: _salvarEdicao,
                 child: const Text('SALVAR ALTERAÇÕES'),
               ),
             ],
@@ -116,12 +89,6 @@ class _CharacterEditViewState extends State<CharacterEditView> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _formFields.dispose();
-    super.dispose();
   }
 }
 

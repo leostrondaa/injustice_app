@@ -22,7 +22,7 @@ class CharactersCommandsViewModel {
     // Observers para cada comando
     _observeGetAllCharacters();
     _observeCreateCharacter();
-    // _observeUpdateCharacter(); // falta criar o observer
+    _observeUpdateCharacter(); // falta criar o observer
   }
 
   // ========================================================
@@ -30,6 +30,7 @@ class CharactersCommandsViewModel {
   // ========================================================
   GetAllCharactersCommand get getAllCharactersCommand => _getAccountCommand;
   CreateCharacterCommand get createCharacterCommand => _createCharacterCommand;
+  UpdateCharacterCommand get updateCharacterCommand => _updateCharacterCommand;
 
   // ========================================================
   //   MÉTODO GENÉRICO DE OBSERVAÇÃO DE COMANDOS
@@ -97,6 +98,19 @@ class CharactersCommandsViewModel {
     );
   }
 
+  /// Edita personagem
+  void _observeUpdateCharacter() {
+    _observeCommand<Character>(
+      _updateCharacterCommand,
+      onSuccess: (updated) {
+        // Atualiza o personagem específico
+        final currentList = state.state.value;
+        state.state.value =
+            currentList.map((c) => c.id == updated.id ? updated : c).toList();
+      },
+    );
+  }
+
   // ========================================================
   //   MÉTODOS PÚBLICOS (CHAMADOS PELOS WIDGETS)
   //   que disparam os commands
@@ -111,5 +125,11 @@ class CharactersCommandsViewModel {
   Future<void> addCharacter(Character character) async {
     state.clearMessage(); // Limpa mensagens anteriores
     await _createCharacterCommand.executeWith((character: character));
+  }
+
+  // chama o update
+  Future<void> updateCharacter(Character character) async {
+    state.clearMessage();
+    await _updateCharacterCommand.executeWith((character: character));
   }
 }

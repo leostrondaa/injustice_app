@@ -59,7 +59,8 @@ class AppRouter {
         name: AppRouteNames.charactersEdit,
         pageBuilder: (context, state) {
           final character = state.extra as Character;
-          return NoTransitionPage(child: CharacterEditView(character: character));
+          return NoTransitionPage(
+              child: CharacterEditView(character: character));
         },
       ),
       GoRoute(

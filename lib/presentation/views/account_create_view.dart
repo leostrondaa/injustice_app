@@ -252,8 +252,7 @@ class _AccountCreateViewState extends State<AccountCreateView> {
     final confirm = await confirmDialog(
       context,
       title: 'Excluir conta',
-      message:
-          'Tem certeza que deseja excluir esta conta?\n\n'
+      message: 'Tem certeza que deseja excluir esta conta?\n\n'
           'Esta ação não poderá ser desfeita.',
       confirmText: 'EXCLUIR',
     );
@@ -413,16 +412,9 @@ class _AccountCreateViewState extends State<AccountCreateView> {
                     // BOTÃO SALVAR / EDITAR
                     Expanded(
                       child: Watch((context) {
-                        final isRunning =
-                            _vmAccount
-                                .commands
-                                .saveAccountCommand
-                                .isExecuting
-                                .value ||
-                            _vmAccount
-                                .commands
-                                .updateAccountCommand
-                                .isExecuting
+                        final isRunning = _vmAccount.commands.saveAccountCommand
+                                .isExecuting.value ||
+                            _vmAccount.commands.updateAccountCommand.isExecuting
                                 .value;
 
                         return ElevatedButton(
@@ -463,29 +455,19 @@ class _AccountCreateViewState extends State<AccountCreateView> {
                             _vmAccount.accountState.canDelete.value;
 
                         final isDeleting = _vmAccount
-                            .commands
-                            .deleteAccountCommand
-                            .isExecuting
-                            .value;
+                            .commands.deleteAccountCommand.isExecuting.value;
 
                         final isSaving = _vmAccount
-                            .commands
-                            .saveAccountCommand
-                            .isExecuting
-                            .value;
+                            .commands.saveAccountCommand.isExecuting.value;
 
                         final isUpdating = _vmAccount
-                            .commands
-                            .updateAccountCommand
-                            .isExecuting
-                            .value;
+                            .commands.updateAccountCommand.isExecuting.value;
 
                         final isBusy = isDeleting || isSaving || isUpdating;
 
                         return ElevatedButton(
-                          onPressed: canDelete && !isBusy
-                              ? _excluirConta
-                              : null,
+                          onPressed:
+                              canDelete && !isBusy ? _excluirConta : null,
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                               vertical: AppSpacing.md,

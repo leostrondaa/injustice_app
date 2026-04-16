@@ -12,7 +12,7 @@ void main() {
   final themeController = injector.get<ThemeController>();
 
   runApp(
-    Watch(
+    Watch(        
       (_) => MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Injustice App',

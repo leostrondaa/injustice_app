@@ -7,7 +7,6 @@ import '../../domain/models/character_entity.dart';
 
 final class CreateCharacterCommand
     extends ParameterizedCommand<Character, Failure, CharacterParams> {
-  
   final ICharacterFacadeUseCases _characterFacadeUseCases;
 
   CreateCharacterCommand(this._characterFacadeUseCases);
@@ -24,7 +23,6 @@ final class CreateCharacterCommand
 
 final class DeleteCharacterCommand
     extends ParameterizedCommand<Character, Failure, CharacterIdParams> {
-  
   final ICharacterFacadeUseCases _characterFacadeUseCases;
 
   DeleteCharacterCommand(this._characterFacadeUseCases);
@@ -40,25 +38,22 @@ final class DeleteCharacterCommand
 }
 
 final class UpdateCharacterCommand
-    extends ParameterizedCommand<Character, Failure, CharacterIdParams> {
-  
+    extends ParameterizedCommand<Character, Failure, CharacterParams> {
   final ICharacterFacadeUseCases _characterFacadeUseCases;
 
   UpdateCharacterCommand(this._characterFacadeUseCases);
 
   @override
   Future<CharacterResult> execute() async {
-    if (parameter == null || parameter!.id.isEmpty) {
-      return Error(InputFailure('Parametro nulo para deletar personagem.'));
-    }
+    if (parameter == null) return Error(InputFailure('Parâmetro nulo.'));
 
-    return await _characterFacadeUseCases.deleteCharacter(parameter!);
+    // chama o save
+    return await _characterFacadeUseCases.saveCharacter(parameter!);
   }
 }
 
 final class GetAllCharactersCommand
     extends ParameterizedCommand<List<Character>, Failure, NoParams> {
-  
   final ICharacterFacadeUseCases _characterFacadeUseCases;
 
   GetAllCharactersCommand(this._characterFacadeUseCases);
@@ -71,7 +66,6 @@ final class GetAllCharactersCommand
 
 final class GetCharacterByIdCommand
     extends ParameterizedCommand<Character, Failure, CharacterIdParams> {
-  
   final ICharacterFacadeUseCases _characterFacadeUseCases;
 
   GetCharacterByIdCommand(this._characterFacadeUseCases);
@@ -79,7 +73,8 @@ final class GetCharacterByIdCommand
   @override
   Future<CharacterResult> execute() async {
     if (parameter == null || parameter!.id.isEmpty) {
-      return Error(InputFailure('Parametro nulo para obter personagem por ID.'));
+      return Error(
+          InputFailure('Parametro nulo para obter personagem por ID.'));
     }
 
     return await _characterFacadeUseCases.getCharacterById(parameter!);
