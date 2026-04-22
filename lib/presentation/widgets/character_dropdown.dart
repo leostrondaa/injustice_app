@@ -33,7 +33,7 @@ class CharacterDropdown<T> extends StatelessWidget {
           return DropdownMenuItem<T>(
             value: item,
             child: Text(
-              itemLabelBuilder(item), // Aqui ele usa o displayName do seu Enum
+              itemLabelBuilder(item),
               style: const TextStyle(fontSize: 14),
             ),
           );
