@@ -216,12 +216,12 @@ class _CharacterEditViewState extends State<CharacterEditView> {
               const SizedBox(height: 8),
               StarRating(
                 stars: characterStars,
-                size: 32, // Deixei um pouco maior para facilitar o toque
-                interactive: true, // HABILITA O MODO EDIÇÃO
+                size: 32, 
+                interactive: true,
                 onStarsChanged: (newStars) {
                   setState(() {
                     characterStars =
-                        newStars; // Atualiza a tela quando você clica/clica duplo
+                        newStars;
                   });
                 },
               ),
