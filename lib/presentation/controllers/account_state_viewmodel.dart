@@ -8,42 +8,43 @@ enum AccountSuccessEvent { created, updated, deleted }
 /// que serão consumidas na UI
 class AccountStateViewModel {
   /// Estado da conta, inicializada como nula
-  final state = Signal<Account?>(null);
+    final state = Signal<Account?>(null);
 
-  /// Mensagem de erro ou aviso, inicializada como nula
-  final message = signal<String?>(null);
+      /// Mensagem de erro ou aviso, inicializada como nula
+        final message = signal<String?>(null);
 
-  /// Evento de sucesso para operações de conta, inicializado como nulo
-  final successEvent = signal<AccountSuccessEvent?>(null);
+          /// Evento de sucesso para operações de conta, inicializado como nulo
+            final successEvent = signal<AccountSuccessEvent?>(null);
 
-  /// Indica se existe uma conta carregada
-  late final hasAccount = computed(() => state.value != null);
+              /// Indica se existe uma conta carregada
+                late final hasAccount = computed(() => state.value != null);
 
-  /// ===== ESTADO SEMÂNTICO =====
-  late final isEditing = computed(() => hasAccount.value);
+                  /// ===== ESTADO SEMÂNTICO =====
+                    late final isEditing = computed(() => hasAccount.value);
 
-  late final canDelete = computed(() => isEditing.value);
+                      late final canDelete = computed(() => isEditing.value);
 
-  late final title = computed(
-    () => isEditing.value ? 'Editar Conta' : 'Criar Conta',
-  );
+                        late final title = computed(
+                            () => isEditing.value ? 'Editar Conta' : 'Criar Conta',
+                              );
 
-  late final labelEditMode = computed(
-    () => isEditing.value ? 'SALVAR' : 'CRIAR',
-  );
+                                late final labelEditMode = computed(
+                                    () => isEditing.value ? 'SALVAR' : 'CRIAR',
+                                      );
 
-  // ----------------------------------------------------------
-  // Métodos auxiliares
-  // ----------------------------------------------------------
-  /// Atualiza o estado da conta
-  void setAccount(Account? account) => state.value = account;
+                                        // ----------------------------------------------------------
+                                          // Métodos auxiliares
+                                            // ----------------------------------------------------------
+                                              /// Atualiza o estado da conta
+                                                void setAccount(Account? account) => state.value = account;
 
-  /// Limpa qualquer mensagem de erro ou aviso
-  void clearMessage() => message.value = null;
+                                                  /// Limpa qualquer mensagem de erro ou aviso
+                                                    void clearMessage() => message.value = null;
 
-  /// Define uma mensagem de erro ou aviso
-  void setMessage(String msg) => message.value = msg;
+                                                      /// Define uma mensagem de erro ou aviso
+                                                        void setMessage(String msg) => message.value = msg;
 
-  /// Limpa o evento de sucesso após ser consumido pela UI
-  void clearSuccessEvent() => successEvent.value = null;
-}
+                                                          /// Limpa o evento de sucesso após ser consumido pela UI
+                                                            void clearSuccessEvent() => successEvent.value = null;
+                                                            }
+                                                            

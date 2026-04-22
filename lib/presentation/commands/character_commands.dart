@@ -46,9 +46,7 @@ final class UpdateCharacterCommand
   @override
   Future<CharacterResult> execute() async {
     if (parameter == null) return Error(InputFailure('Parâmetro nulo.'));
-
-    // chama o save
-    return await _characterFacadeUseCases.saveCharacter(parameter!);
+    return await _characterFacadeUseCases.updateCharacter(parameter!);
   }
 }
 
@@ -74,7 +72,7 @@ final class GetCharacterByIdCommand
   Future<CharacterResult> execute() async {
     if (parameter == null || parameter!.id.isEmpty) {
       return Error(
-          InputFailure('Parametro nulo para obter personagem por ID.'));
+          InputFailure('Parametro nulo para obter personagem po ID.'));
     }
 
     return await _characterFacadeUseCases.getCharacterById(parameter!);

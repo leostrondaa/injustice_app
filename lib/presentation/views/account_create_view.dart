@@ -47,7 +47,7 @@ class _AccountCreateViewState extends State<AccountCreateView> {
   int _gems = 0;
   int _energy = 1;
 
-  @override
+    @override
   void initState() {
     super.initState();
     _formFields = AccountFormFieldsController();

@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 import '../../presentation/views/about_view.dart';
 import '../../domain/models/account_entity.dart';
 import '../../domain/models/character_entity.dart';
-import '../../domain/models/character_mapper.dart';
 import '../../presentation/views/account_create_view.dart';
 import '../../presentation/views/characters/list_of/characters_view.dart';
 import '../../presentation/views/characters/list_of/character_edit_view.dart';
+import '../../presentation/views/characters/list_of/character_create_view.dart';
 import '../../presentation/views/home_view.dart';
 
 /// Route names for easier referencing
@@ -16,6 +16,7 @@ class AppRouteNames {
   static const accountCreate = 'account_create';
   static const characters = 'characters';
   static const charactersEdit = 'charactersEdit';
+  static const charactersCreate = 'charactersCreate';
 }
 
 /// Paths to keep URL structure consistent
@@ -25,6 +26,7 @@ class AppPaths {
   static const accountCreate = '/account-create';
   static const characters = '/characters';
   static const charactersEdit = '/charactersEdit';
+  static const charactersCreate = '/charactersCreate';
 }
 
 /// app routers using go_router
@@ -55,12 +57,28 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: AppPaths.charactersEdit,
         name: AppRouteNames.charactersEdit,
-        pageBuilder: (context, state) {
-          final character = state.extra as Character;
-          return NoTransitionPage(
-              child: CharacterEditView(character: character));
+        path: AppPaths.charactersEdit,
+        builder: (context, state) {
+          final extra = state.extra as ({Character character, Account account});
+
+          return CharacterEditView(
+            character: extra.character,
+            account: extra.account,
+          );
+        },
+      ),
+      GoRoute(
+        name: AppRouteNames.charactersCreate,
+        path: AppPaths.charactersCreate,
+        builder: (context, state) {
+          final extra =
+              state.extra as ({Account account, Character? character});
+
+          return CharacterCreateView(
+            account: extra.account,
+            character: extra.character,
+          );
         },
       ),
       GoRoute(

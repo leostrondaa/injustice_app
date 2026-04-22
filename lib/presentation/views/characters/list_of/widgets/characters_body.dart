@@ -26,13 +26,11 @@ class CharactersBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Watch((context) {
-      final isLoading =
-          viewModel.commands.getAllCharactersCommand.isExecuting.value;
-
+      final isLoading = viewModel.commands.getAllCharactersCommand.isExecuting.value;
       final characters = viewModel.charactersState.sortedCharacters.value;
 
       return RefreshIndicator(
-        onRefresh: () async {},
+        onRefresh: () async => await viewModel.commands.fetchCharacters(),
         child: CustomScrollView(
           slivers: [
             /// Header
@@ -44,16 +42,18 @@ class CharactersBody extends StatelessWidget {
             ),
 
             /// Filtros
-            SliverToBoxAdapter(child: FilterPanel(viewModel: viewModel)),
+            SliverToBoxAdapter(
+              child: FilterPanel(viewModel: viewModel),
+            ),
 
-            /// Conteúdo (loading | empty | lista)
+            /// conteudo
             if (isLoading)
-              SliverFillRemaining(
+              const SliverFillRemaining(
                 hasScrollBody: false,
                 child: LoadingIndicator(message: 'Carregando personagens...'),
               )
             else if (characters.isEmpty)
-              SliverFillRemaining(
+              const SliverFillRemaining(
                 hasScrollBody: false,
                 child: EmptyState.noCharacters(),
               )
@@ -61,14 +61,31 @@ class CharactersBody extends StatelessWidget {
               SliverPadding(
                 padding: AppSpacing.paddingMd,
                 sliver: SliverList(
-                  delegate: SliverChildBuilderDelegate((context, index) {
-                    final character = characters[index];
-                    return CharacterListItem(
-                      character: character,
-                      onDelete: () {},
-                      onTap: () {},
-                    );
-                  }, childCount: characters.length),
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      final character = characters[index];
+
+                      return CharacterListItem(
+                        character: character,
+                        account: account,
+                        onTap: () {
+                          context.goNamed(
+                            AppRouteNames.charactersEdit,
+                            extra: (character: character, account: account),
+                          );
+                        },
+                        onDelete: () async {
+                          final currentList = viewModel.charactersState.state.value;
+                          viewModel.charactersState.state.value = currentList
+                              .where((c) => c.id != character.id)
+                              .toList();
+
+                          await viewModel.commands.deleteCharacter(character.id);
+                        },
+                      );
+                    },
+                    childCount: characters.length,
+                  ),
                 ),
               ),
           ],
@@ -122,12 +139,14 @@ class CharactersBody extends StatelessWidget {
 /// Item da lista de personagens
 class CharacterListItem extends StatelessWidget {
   final Character character;
+  final Account account;
   final VoidCallback onDelete;
   final VoidCallback onTap;
 
   const CharacterListItem({
     super.key,
     required this.character,
+    required this.account,
     required this.onDelete,
     required this.onTap,
   });
@@ -160,7 +179,10 @@ class CharacterListItem extends StatelessWidget {
         if (direction == DismissDirection.startToEnd) {
           context.goNamed(
             AppRouteNames.charactersEdit,
-            extra: character,
+            extra: (
+              character: character,
+              account: account
+            ),
           );
           return false;
         } else {
@@ -321,10 +343,8 @@ class FilterPanel extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
                     if (filtersCount > 0) ...[
                       const SizedBox(width: 6),
-
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
@@ -344,9 +364,7 @@ class FilterPanel extends StatelessWidget {
                         ),
                       ),
                     ],
-
                     const Spacer(),
-
                     if (filtersCount > 0)
                       TextButton.icon(
                         onPressed: state.clearFilters,
@@ -544,7 +562,6 @@ class _FilterSection extends StatelessWidget {
               ),
             ),
           ),
-
           AnimatedCrossFade(
             firstChild: const SizedBox.shrink(),
             secondChild: Padding(
@@ -556,7 +573,6 @@ class _FilterSection extends StatelessWidget {
                 : CrossFadeState.showFirst,
             duration: const Duration(milliseconds: 200),
           ),
-
           const SizedBox(height: AppSpacing.md),
         ],
       );

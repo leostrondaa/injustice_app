@@ -160,24 +160,27 @@ class _NumericSpinnerState extends State<NumericSpinner> {
               ),
 
               // Campo de entrada
-              Container(
-                width: 100,
-                padding: AppSpacing.horizontalSm,
-                child: TextField(
-                  controller: _controller,
-                  focusNode: _focusNode,
-                  textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    isDense: true,
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: AppSpacing.sm,
+              Expanded(
+                child: Container(
+                  padding: AppSpacing.horizontalSm,
+                  child: TextField(
+                    controller: _controller,
+                    focusNode: _focusNode,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical:
+                            8,
+                      ),
                     ),
+                    style: context.textStyles.bodyMedium
+                        ?.bold,
+                    onSubmitted: (_) => _validateAndUpdate(),
                   ),
-                  style: context.textStyles.titleMedium?.bold,
-                  onSubmitted: (_) => _validateAndUpdate(),
                 ),
               ),
 
@@ -190,16 +193,16 @@ class _NumericSpinnerState extends State<NumericSpinner> {
                     right: Radius.circular(AppRadius.md),
                   ),
                   child: Container(
-                    padding: const EdgeInsets.all(AppSpacing.md),
+                    padding: const EdgeInsets.all(8),
                     child: Icon(
                       Icons.add,
+                      size: 20,
                       color: canIncrement
-                          ? Theme.of(
-                              context,
-                            ).colorScheme.onSecondary.withValues(alpha: 0.7)
-                          : Theme.of(
-                              context,
-                            ).colorScheme.primary,
+                          ? Theme.of(context)
+                              .colorScheme
+                              .onSecondary
+                              .withValues(alpha: 0.7)
+                          : Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ),

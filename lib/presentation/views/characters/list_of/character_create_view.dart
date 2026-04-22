@@ -1,3 +1,4 @@
+import 'package:faker_dart/faker_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/routes/app_routes.dart';
@@ -15,24 +16,21 @@ import '../../../widgets/star_rating.dart';
 import '../../../widgets/numeric_spinner.dart';
 import 'package:injustice_app/core/typedefs/types_defs.dart';
 
-class CharacterEditView extends StatefulWidget {
-  final Character character;
+class CharacterCreateView extends StatefulWidget {
   final Account account;
+  final Character? character;
 
-  const CharacterEditView({
-    super.key,
-    required this.character,
-    required this.account,
-  });
+  const CharacterCreateView({super.key, required this.account, this.character});
 
   @override
-  State<CharacterEditView> createState() => _CharacterEditViewState();
+  State<CharacterCreateView> createState() => _CharacterCreateViewState();
 }
 
-class _CharacterEditViewState extends State<CharacterEditView> {
+class _CharacterCreateViewState extends State<CharacterCreateView> {
   late final CharactersViewModel _vmCharacter;
   late final CharacterFormFieldsController _formFields;
   final _formKey = GlobalKey<FormState>();
+  static final Faker _faker = Faker.instance..setLocale(FakerLocaleType.pt_PT);
   CharacterClass? characterClass;
   CharacterRarity? characterRarity;
   CharacterAlignment? characterAlign;
@@ -47,45 +45,35 @@ class _CharacterEditViewState extends State<CharacterEditView> {
     super.initState();
     _vmCharacter = injector.get<CharactersViewModel>();
     _formFields = CharacterFormFieldsController();
-    _preencherCampos(widget.character);
-    characterClass = widget.character.characterClass;
-    characterRarity = widget.character.rarity;
-    characterAlign = widget.character.alignment;
-    characterStars = widget.character.stars;
-    characterAtk = widget.character.attack;
-    characterHp = widget.character.health;
-    characterThreat = widget.character.threat;
-    characterLvl = widget.character.level;
   }
 
-  @override
-  void dispose() {
-    _formFields.dispose();
-    super.dispose();
-  }
-
-  void _preencherCampos(Character character) {
-    _formFields.name.controller.text = character.name;
-  }
-
-  Future<void> _salvarEdicao() async {
+  Future<void> _salvarCriacao() async {
     if (!_formKey.currentState!.validate()) return;
 
-    final updatedCharacter = widget.character.copyWith(
+    if (characterClass == null ||
+        characterRarity == null ||
+        characterAlign == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('preencha todos os campos.')),
+      );
+      return;
+    }
+    final createCharacter = Character(
+      id: _faker.datatype.uuid(),
       name: _formFields.name.controller.text.trim(),
-      characterClass: characterClass ?? widget.character.characterClass,
-      rarity: characterRarity ?? widget.character.rarity,
-      alignment: characterAlign ?? widget.character.alignment,
-      stars: characterStars,
+      characterClass: characterClass!,
+      rarity: characterRarity!,
+      alignment: characterAlign!,
+      level: characterLvl,
       attack: characterAtk,
       health: characterHp,
       threat: characterThreat,
-      level: characterLvl,
+      createdAt: DateTime.now(),
       updatedAt: DateTime.now(),
+      stars: characterStars,
     );
 
-    final result =
-        await _vmCharacter.commands.updateCharacter(updatedCharacter);
+    await _vmCharacter.commands.addCharacter(createCharacter);
 
     if (mounted) {
       context.goNamed(
@@ -99,7 +87,7 @@ class _CharacterEditViewState extends State<CharacterEditView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Menu editar'),
+        title: const Text('Menu criar'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -230,7 +218,7 @@ class _CharacterEditViewState extends State<CharacterEditView> {
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
                 ),
-                onPressed: _salvarEdicao,
+                onPressed: _salvarCriacao,
                 child: const Text('Salvar alterações'),
               ),
               const SizedBox(height: 12),

@@ -7,8 +7,7 @@ class TextFieldValidator {
       : _validators = validators;
 
   bool validations(String? validation) {
-
-    for (var i = 0; i < _validators.length-1; i++) {
+    for (var i = 0; i < _validators.length - 1; i++) {
       _validators[i].setNextValidator(_validators[i + 1]);
     }
 

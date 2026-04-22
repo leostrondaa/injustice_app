@@ -43,11 +43,16 @@ class AccountAttributeCard extends StatelessWidget {
                 ],
               ),
             ),
-            NumericSpinner(
-              value: value,
-              minValue: minValue,
-              maxValue: maxValue,
-              onChanged: onChanged,
+            const SizedBox(width: 8),
+
+            SizedBox(
+              width: 140,
+              child: NumericSpinner(
+                value: value,
+                minValue: minValue,
+                maxValue: maxValue,
+                onChanged: onChanged,
+              ),
             ),
           ],
         ),

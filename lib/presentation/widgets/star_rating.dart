@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 /// Widget para exibir e editar rating de estrelas (1-14)
-/// 
+///
 /// Sistema de cores:
 /// - Até 7 estrelas: amarelas
 /// - De 8 a 14 estrelas: primeiras são rosa (#eb02f7), últimas são amarelas
-/// 
+///
 /// Modo interativo:
 /// - Tap simples na estrela N: define N estrelas (amarelas)
 /// - Duplo tap na estrela N: define N + 7 estrelas (N rosas + N amarelas)
@@ -59,7 +59,7 @@ class _DisplayStarRating extends StatelessWidget {
     final int pinkStars;
     final int yellowStars;
     final int emptyStars;
-    
+
     if (stars <= 7) {
       pinkStars = 0;
       yellowStars = stars;
@@ -133,7 +133,7 @@ class _InteractiveStarRatingState extends State<_InteractiveStarRating> {
       // Duplo tap: toggle entre amarela e rosa
       final pinkStars = widget.stars > 7 ? (widget.stars - 7).clamp(0, 7) : 0;
       final isPinkStar = index < pinkStars;
-      
+
       if (isPinkStar) {
         // Estrela rosa → vira amarela (reduz para position estrelas)
         widget.onStarsChanged(position);
@@ -147,26 +147,26 @@ class _InteractiveStarRatingState extends State<_InteractiveStarRating> {
     // Tap simples: agenda com delay para detectar possível duplo tap
     _tapTimer?.cancel();
     _pendingTapIndex = index;
-    
+
     _tapTimer = Timer(const Duration(milliseconds: 250), () {
       _tapTimer = null;
       _pendingTapIndex = null;
-      
+
       // Calcula estado atual
       final pinkStars = widget.stars > 7 ? (widget.stars - 7).clamp(0, 7) : 0;
       final isPinkStar = index < pinkStars;
       final hasPinkStars = widget.stars > 7;
-      
+
       // Estrela rosa: não faz nada em tap simples
       if (isPinkStar) {
         return;
       }
-      
+
       // Estrela amarela quando há rosa: não faz nada em tap simples
       if (hasPinkStars && index >= pinkStars) {
         return;
       }
-      
+
       // Estrela amarela sem rosa ou estrela vazia: toggle
       if (widget.stars == position) {
         widget.onStarsChanged(0);
@@ -181,7 +181,7 @@ class _InteractiveStarRatingState extends State<_InteractiveStarRating> {
     // Calcula quantas estrelas de cada cor para exibição (máximo 7 estrelas visíveis)
     final int pinkStars;
     final int yellowStars;
-    
+
     if (widget.stars <= 7) {
       pinkStars = 0;
       yellowStars = widget.stars;

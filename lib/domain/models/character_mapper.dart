@@ -24,15 +24,13 @@ class CharacterMapper {
       name: map['name'] as String,
       characterClass:
           CharacterClass.values.byName(map['characterClass'] as String),
-      rarity:
-          CharacterRarity.values.byName(map['rarity'] as String),
+      rarity: CharacterRarity.values.byName(map['rarity'] as String),
       level: map['level'] as int,
       threat: map['threat'] as int,
       attack: map['attack'] as int,
       health: map['health'] as int,
       stars: map['stars'] as int,
-      alignment:
-          CharacterAlignment.values.byName(map['alignment'] as String),
+      alignment: CharacterAlignment.values.byName(map['alignment'] as String),
       createdAt: DateTime.parse(map['createdAt'] as String),
       updatedAt: DateTime.parse(map['updatedAt'] as String),
     );

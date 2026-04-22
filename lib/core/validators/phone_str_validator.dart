@@ -11,11 +11,11 @@ final class PhoneStrValidator extends BaseValidator<String?> {
     return switch (validation) {
       null => throw InputFailure(AppMessages.error.nullStringError),
       String v when v.trim().isEmpty => throw InputFailure(
-        AppMessages.error.nullStringError,
-      ),
+          AppMessages.error.nullStringError,
+        ),
       String v when !RegexApp.phone.hasMatch(v.trim()) => throw InvalidPhone(
-        AppMessages.error.invalidPhoneError,
-      ),
+          AppMessages.error.invalidPhoneError,
+        ),
       _ => nextValidator?.validate(validation) ?? true,
     };
   }

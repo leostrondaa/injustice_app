@@ -14,12 +14,12 @@ class DefaultFailure extends Failure {
 
 class ApiLocalFailure extends Failure {
   ApiLocalFailure([String? msg])
-    : super(msg ?? AppMessages.error.apiLocalError);
+      : super(msg ?? AppMessages.error.apiLocalError);
 }
 
 class EmptyResultFailure extends Failure {
   EmptyResultFailure([String? msg])
-    : super(msg ?? AppMessages.error.emptyResultError);
+      : super(msg ?? AppMessages.error.emptyResultError);
 }
 
 class InputFailure extends Failure {
@@ -32,20 +32,20 @@ class InvalidDate extends Failure {
 
 class InvalidEmail extends Failure {
   InvalidEmail([String? msg])
-    : super(msg ?? AppMessages.error.invalidEmailError);
+      : super(msg ?? AppMessages.error.invalidEmailError);
 }
 
 class InvalidPassword extends Failure {
   InvalidPassword([String? msg])
-    : super(msg ?? AppMessages.error.invalidPasswordError);
+      : super(msg ?? AppMessages.error.invalidPasswordError);
 }
 
 class PasswordNotConfirmed extends Failure {
   PasswordNotConfirmed([String? msg])
-    : super(msg ?? AppMessages.error.passwordMismatchError);
+      : super(msg ?? AppMessages.error.passwordMismatchError);
 }
 
 class InvalidPhone extends Failure {
   InvalidPhone([String? msg])
-    : super(msg ?? AppMessages.error.invalidPhoneError);
+      : super(msg ?? AppMessages.error.invalidPhoneError);
 }

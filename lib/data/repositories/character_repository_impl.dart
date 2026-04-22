@@ -9,7 +9,12 @@ final class CharacterRepositoryImpl implements ICharacterRepository {
   final ICharacterLocalStorage _localStorage;
 
   CharacterRepositoryImpl({required ICharacterLocalStorage localStorage})
-    : _localStorage = localStorage;
+      : _localStorage = localStorage;
+
+  @override
+  Future<CharacterResult> updateCharacter(Character character) {
+    return _localStorage.updateCharacter(character);
+  }
 
   @override
   Future<CharacterResult> deleteCharacter(String id) {
