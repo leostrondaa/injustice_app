@@ -23,7 +23,7 @@ class AccountSummaryCard extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [colors.secondary, colors.primary],
+            colors: [colors.secondary, colors.tertiary],
           ),
         ),
         child: Padding(

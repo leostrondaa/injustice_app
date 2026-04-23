@@ -26,7 +26,8 @@ class CharactersBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Watch((context) {
-      final isLoading = viewModel.commands.getAllCharactersCommand.isExecuting.value;
+      final isLoading =
+          viewModel.commands.getAllCharactersCommand.isExecuting.value;
       final characters = viewModel.charactersState.sortedCharacters.value;
 
       return RefreshIndicator(
@@ -75,12 +76,14 @@ class CharactersBody extends StatelessWidget {
                           );
                         },
                         onDelete: () async {
-                          final currentList = viewModel.charactersState.state.value;
+                          final currentList =
+                              viewModel.charactersState.state.value;
                           viewModel.charactersState.state.value = currentList
                               .where((c) => c.id != character.id)
                               .toList();
 
-                          await viewModel.commands.deleteCharacter(character.id);
+                          await viewModel.commands
+                              .deleteCharacter(character.id);
                         },
                       );
                     },
@@ -179,10 +182,7 @@ class CharacterListItem extends StatelessWidget {
         if (direction == DismissDirection.startToEnd) {
           context.goNamed(
             AppRouteNames.charactersEdit,
-            extra: (
-              character: character,
-              account: account
-            ),
+            extra: (character: character, account: account),
           );
           return false;
         } else {
@@ -194,11 +194,14 @@ class CharacterListItem extends StatelessWidget {
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
-                      child: const Text('Cancelar'),
+                      child: const Text('Cancelar',
+                          style: TextStyle(color: Colors.white54)),
                     ),
                     TextButton(
                       onPressed: () => Navigator.pop(context, true),
-                      child: const Text('Excluir'),
+                      child: const Text('Excluir',
+                        style: TextStyle(color: Colors.white54),
+                      ),
                     ),
                   ],
                 ),

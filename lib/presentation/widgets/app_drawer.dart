@@ -25,7 +25,7 @@ class AppDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.primaryContainer,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class AppDrawer extends StatelessWidget {
               Icons.home,
               // color: currentRoute == AppRoutes.home
               color: currentRoute == AppPaths.home
-                  ? Theme.of(context).colorScheme.primary
+                  ? Theme.of(context).colorScheme.primaryFixed
                   : Theme.of(context).colorScheme.onSecondary,
             ),
             title: Text(

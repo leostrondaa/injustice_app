@@ -83,22 +83,27 @@ class LightModeColors {
   // ===========================================================================
   // PRIMARY — Azul profundo (base do app)
   // ===========================================================================
-  static const lightPrimary = Color(0xFF0A0E3D);
-  static const lightOnPrimary = Color(0xFFE6E8FF);
+  static const lightPrimary = Color(0xFFffe682);
+  static const lightOnPrimary = Color(0xFFFFFFFF);
 
   // Containers do primary (botões, chips)
-  static const lightPrimaryContainer = Color(0xFF1D2363);
-  static const lightOnPrimaryContainer = Color(0xFFD6D8F0);
+  static const lightPrimaryContainer = Color(0xFF000000);
+  static const lightOnPrimaryContainer = Color(0xFFFFFFFF);
 
   // ===========================================================================
   // SECONDARY — Vermelho (ações destrutivas / alerta)
   // ===========================================================================
-  static const lightSecondary = Color(0xFFBA1A1A);
+  static const lightSecondary = Color(0xFF181818);
   static const lightOnSecondary = Color(0xFFFFFFFF);
 
   // Tertiary — variação mais suave do vermelho
-  static const lightTertiary = Color(0xFFD65C5C);
-  static const lightOnTertiary = Color(0xFF2B0B0C);
+  static const lightTertiary = Color(0xBFB8860B);
+  static const lightOnTertiary = Color(0xFFd1d1d1);
+
+  static const lightTertiary2 = Color(0xFF000000);
+  static const lightOnTertiary2 = Color(0xBFFFFFFF);
+
+
 
   // ===========================================================================
   // ERROR — separado semanticamente do secondary
@@ -111,7 +116,7 @@ class LightModeColors {
   // ===========================================================================
   // BACKGROUND & SURFACE — azul escuro dominante
   // ===========================================================================
-  static const lightBackground = Color(0xFF0A0E3D); // fundo das telas
+  static const lightBackground = Color(0xFF212121); // fundo das telas
   static const lightSurface = Color(0xFF12175A); // cards, sheets
   static const lightSurfaceVariant = Color(0xFF1B217A); // containers elevados
 
@@ -131,19 +136,25 @@ class LightModeColors {
 
 /// Dark mode colors adapted to game theme
 class DarkModeColors {
-  // Primary: Lighter blue for dark background
-  static const darkPrimary = Color(0xFF8B90D8);
-  static const darkOnPrimary = Color(0xFF0A0E3D);
-  static const darkPrimaryContainer = Color(0xFF1D2363);
-  static const darkOnPrimaryContainer = Color(0xFFD6D8F0);
+  static const darkPrimary = Color(0xFFffe682);
+  static const darkOnPrimary = Color(0xFFFFFFFF);
+  // Containers do primary (botões, chips)
+  static const darkPrimaryContainer = Color(0xFF000000);
+  static const darkOnPrimaryContainer = Color(0xFFFFFFFF);
 
-  // Secondary: Lighter red for dark background
-  static const darkSecondary = Color(0xFFE57373);
-  static const darkOnSecondary = Color(0xFF5A1A1B);
+  // ===========================================================================
+  // SECONDARY — Vermelho (ações destrutivas / alerta)
+  // ===========================================================================
+  static const darkSecondary = Color(0xFF181818);
+  static const darkOnSecondary = Color(0xFFFFFFFF);
 
-  // Tertiary
-  static const darkTertiary = Color(0xFFEF9A9A);
-  static const darkOnTertiary = Color(0xFF6D2627);
+  // Tertiary — variação mais suave do vermelho
+  static const darkTertiary = Color(0xBFB8860B);
+  static const darkOnTertiary = Color(0xFFd1d1d1);
+
+  static const darkTertiary2 = Color(0xFF000000);
+  static const darkOnTertiary2 = Color(0xBFFFFFFF);
+
 
   // Error colors
   static const darkError = Color(0xFFFFB4AB);

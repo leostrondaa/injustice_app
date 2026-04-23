@@ -51,13 +51,13 @@ class InputTextField extends StatelessWidget {
       inputFormatters: inputFormatters,
       onFieldSubmitted: onFieldSubmitted,
 
-      style: TextStyle(color: colorScheme.primary),
+      style: TextStyle(color: colorScheme.secondary),
 
       decoration: InputDecoration(
         labelText: label,
         hintText: hint ?? label,
-        hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
-        labelStyle: TextStyle(color: colorScheme.primary),
+        hintStyle: TextStyle(color: Theme.of(context).colorScheme.secondary),
+        labelStyle: TextStyle(color: colorScheme.secondary),
 
         floatingLabelStyle: TextStyle(
           color: colorScheme.primary,
