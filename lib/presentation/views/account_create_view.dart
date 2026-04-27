@@ -422,7 +422,10 @@ class _AccountCreateViewState extends State<AccountCreateView> {
                             ),
                             foregroundColor: Theme.of(
                               context,
-                            ).colorScheme.onPrimary,
+                            ).colorScheme.primary,
+                            backgroundColor: Theme.of(
+                              context, 
+                            ).colorScheme.tertiary,
                           ),
                           child: isRunning
                               ? const SizedBox(
@@ -474,7 +477,7 @@ class _AccountCreateViewState extends State<AccountCreateView> {
                             ).colorScheme.onPrimary,
                             backgroundColor: Theme.of(
                               context,
-                            ).colorScheme.tertiary,
+                            ).colorScheme.secondary,
                           ),
                           child: isDeleting
                               ? const SizedBox(

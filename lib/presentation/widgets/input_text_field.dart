@@ -60,7 +60,7 @@ class InputTextField extends StatelessWidget {
         labelStyle: TextStyle(color: colorScheme.secondary),
 
         floatingLabelStyle: TextStyle(
-          color: colorScheme.primary,
+          color: colorScheme.secondary,
           // color: colorScheme.secondary,
           fontWeight: FontWeight.bold,
           backgroundColor: colorScheme.onSecondary,
@@ -68,7 +68,7 @@ class InputTextField extends StatelessWidget {
         ),
 
         prefixIcon: prefixIcon != null
-            ? Icon(prefixIcon, color: colorScheme.primary)
+            ? Icon(prefixIcon, color: colorScheme.secondary)
             : null,
 
         filled: true,
@@ -78,12 +78,12 @@ class InputTextField extends StatelessWidget {
 
         enabledBorder: OutlineInputBorder(
           borderRadius: borderRadius,
-          borderSide: BorderSide(color: colorScheme.primary),
+          borderSide: BorderSide(color: colorScheme.secondary),
         ),
 
         focusedBorder: OutlineInputBorder(
           borderRadius: borderRadius,
-          borderSide: BorderSide(color: colorScheme.primary, width: 2),
+          borderSide: BorderSide(color: colorScheme.tertiary, width: 2),
         ),
 
         errorBorder: OutlineInputBorder(

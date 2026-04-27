@@ -3,6 +3,7 @@ import '../../../../../helper_dev/fakes/character_factory.dart';
 import '../../../../controllers/characters_view_model.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 import '../../../../../core/routes/app_routes.dart';
+import '../../../../../core/theme/app_theme.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../domain/models/account_entity.dart';
 import '../../../../../domain/models/character_entity.dart';
@@ -42,9 +43,12 @@ class CharactersFab extends StatelessWidget {
                 final int? selectedValue = await showMenu<int>(
                   context: context,
                   position: position,
+                  color: Theme.of(context).colorScheme.tertiary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
+                    
                   ),
+      
                   items: [
                     const PopupMenuItem(value: 1, child: Text("Aleatório")),
                     const PopupMenuItem(value: 2, child: Text("Criar")),

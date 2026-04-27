@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import '../../core/theme/app_theme.dart';
 
 class CharacterDropdown<T> extends StatelessWidget {
   final T? value;
@@ -48,8 +49,11 @@ class CharacterDropdown<T> extends StatelessWidget {
             border: Border.all(color: Colors.grey.shade300),
           ),
         ),
-        dropdownStyleData: const DropdownStyleData(
+        dropdownStyleData: DropdownStyleData(
           maxHeight: 250,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
       ),
     );

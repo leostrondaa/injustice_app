@@ -1,6 +1,7 @@
 import 'package:faker_dart/faker_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../../core/theme/app_theme.dart';
 import '../../../../../core/routes/app_routes.dart';
 import '../../../../../core/validators/empty_str_validator.dart';
 import '../../../../../core/validators/text_field_validator.dart';
@@ -217,15 +218,15 @@ class _CharacterCreateViewState extends State<CharacterCreateView> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
                 ),
-                onPressed: _salvarCriacao,
+                onPressed: _salvarCriacao, 
                 child: const Text('Salvar alterações'),
               ),
               const SizedBox(height: 12),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
-                  backgroundColor: Colors.grey[800],
                 ),
                 onPressed: () => context.goNamed(
                   AppRouteNames.characters,

@@ -59,7 +59,7 @@ class DateWheelPicker extends StatelessWidget {
 
     await showModalBottomSheet(
       context: context,
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.lg)),
       ),
@@ -98,7 +98,7 @@ class DateWheelPicker extends StatelessWidget {
                               (context.textStyles.titleMedium ??
                                       const TextStyle())
                                   .withColor(
-                                    Theme.of(context).colorScheme.secondary,
+                                    Theme.of(context).colorScheme.onPrimary,
                                   ),
                         ),
                       ),
@@ -264,7 +264,7 @@ class DateWheelPicker extends StatelessWidget {
                   _formatDate(selectedDate),
                   style: context.textStyles.bodyLarge?.copyWith(
                     color: selectedDate != null
-                        ? Theme.of(context).colorScheme.primary
+                        ? Theme.of(context).colorScheme.secondary
                         : Theme.of(
                             context,
                           ).colorScheme.primary.withValues(alpha: 0.6),
@@ -272,7 +272,7 @@ class DateWheelPicker extends StatelessWidget {
                 ),
                 Icon(
                   Icons.calendar_today,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.secondary,
                   size: 20,
                 ),
               ],

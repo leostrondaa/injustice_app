@@ -229,6 +229,7 @@ class _CharacterEditViewState extends State<CharacterEditView> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
                 ),
                 onPressed: _salvarEdicao,
                 child: const Text('Salvar alterações'),

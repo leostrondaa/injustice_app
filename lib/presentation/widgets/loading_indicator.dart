@@ -16,7 +16,7 @@ class LoadingIndicator extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: colorScheme.surface.withValues(alpha: 0.9),
+          color: colorScheme.secondary.withValues(alpha: 0.9),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: colorScheme.outlineVariant),
           boxShadow: [

@@ -45,7 +45,7 @@ class AppRadius {
 // =============================================================================
 
 /// Extension to add text style utilities to BuildContext
-/// Access via context.textStyles
+/// Access via context.textStyle
 extension TextStyleContext on BuildContext {
   TextTheme get textStyles => Theme.of(this).textTheme;
 }
@@ -83,7 +83,7 @@ class LightModeColors {
   // ===========================================================================
   // PRIMARY — Azul profundo (base do app)
   // ===========================================================================
-  static const lightPrimary = Color(0xFFffe682);
+  static const lightPrimary = Color(0xFFFFFF00);
   static const lightOnPrimary = Color(0xFFFFFFFF);
 
   // Containers do primary (botões, chips)

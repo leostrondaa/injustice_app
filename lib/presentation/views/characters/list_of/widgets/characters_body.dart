@@ -189,6 +189,7 @@ class CharacterListItem extends StatelessWidget {
           return await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
                   title: const Text('Confirmar exclusão'),
                   content: Text('Deseja realmente excluir ${character.name}?'),
                   actions: [
